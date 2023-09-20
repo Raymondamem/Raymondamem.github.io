@@ -1,0 +1,49 @@
+body {
+  color: white;
+}
+
+body form * {
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+}
+
+body form input {
+  -webkit-box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+          box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+  color: black;
+}
+
+body .pridiction {
+  display: block;
+}
+
+body .pridiction > span img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+@media screen and (max-width: 768px) {
+  body main {
+    position: relative;
+  }
+  body main.active::before {
+    content: '';
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #7dd3fc;
+  }
+  body div[data-pridiction="pridiction"] {
+    width: 80%;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    -webkit-transform: translateX(-50%) translateY(50%);
+            transform: translateX(-50%) translateY(50%);
+  }
+}
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soil prediction 🌾</title>
+    <link rel="shortcut icon" href="./pumpkin.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="./public/scss/css.css">
+</head>
+
+<body class="min-h-full">
+    <main class="active mx-auto min-h-full bg-sky-300">
+        <header class="bg-sky-300 shadow-lg md:flex justify-between items-center gap-5">
+            <div class="container mx-auto p-5 font-sans text-2xl md:text-5xl">Soil Prediction Site🌾</div>
+
+            <button
+                href="https://api.openweathermap.org/data/3.0/onecall?lat=10.44&lon=9.04&exclude=hourly,daily&appid=58790125b0c0813b2c9e4e506a8980fb"
+                id="weather"
+                class="bg-sky-400 shadow-lg rounded-lg transition duration-300 ease-in-out hover:bg-white weatherBtn">Weather
+                Forecast</button>
+        </header>
+        <div class="container mx-auto p-5">
+            <h1 id="mssg" class="w-full mb-10 text-center underline">To predicte/suggest proper crop for perticuler soil
+                based on
+                its PH,
+                temprature and NPK values provieded
+                by you.</h1>
+            <section class="md:flex justify-between items-center gap-5">
+                <form id="form" class="md:w-2/4 mt-10 flex flex-col gap-10">
+                    <div class="flex justify-between items-center w-full">
+                        <label for="city" class="mr-8 f-2 text-2xl">City</label>
+                        <input type="text" id="city" name="city" class="rounded-lg p-2 w-9/12" required>
+                    </div>
+                    <div class="flex justify-between items-center w-full">
+                        <label for="ph" class="mr-8 f-2 text-2xl">PH</label>
+                        <input type="text" inputmode="numeric" pattern="\d*.?\d+" id="ph" name="ph"
+                            class="rounded-lg p-2 w-9/12" required>
+                    </div>
+                    <div class="flex justify-between items-center w-full">
+                        <label for="npk" class="mr-8 f-2 text-2xl">NPK</label>
+                        <input type="text" id="npk" name="npk" class="rounded-lg p-2 w-9/12" required>
+                    </div>
+                    <div class="flex justify-between items-center w-full">
+                        <label for="temprature" class="mr-8 f-2 text-2xl">Temprature</label>
+                        <input type="text" inputmode="numeric" pattern="\d*.?\d+" id="temprature" name="temprature"
+                            class="rounded-lg p-2 w-9/12" required>
+                    </div>
+                    <button type="submit" id="btn"
+                        class="bg-sky-400 shadow-lg w-fit mx-auto p-2 px-14 rounded-lg text-lg transition duration-300 ease-in-out hover:bg-white">Predict
+                        🌾</button>
+                </form>
+                <div data-pridiction="pridiction"
+                    class="slider hidden md:flex justify-center items-center w-2/4 h-96 bg-sky-300 rounded-2xl">
+                </div>
+        </div>
+        </section>
+        </div>
+    </main>
+    <!-- error model -->
+    <div class="errModel">
+    </div>
+    <!-- weather status model -->
+    <div id="weatherModel" class="weatherModel">
+        <span id="closeButton" class="closeButton">×</span>
+        <div class="wrapper">
+            <h3>Weather for your current location</h3>
+            <p style="width: 100%; margin: auto; padding: 1rem 0; text-shadow: 1px 1px 5px #7dd3fc; font-size: 1.5rem;">
+                Enter your region.</p>
+            <div method="get" id="getWeather">
+                <div class="flex justify-between items-center w-full">
+                    <label for="city" class="mr-8 f-2 text-2xl">City</label>
+                    <input type="text" id="city" name="city" class="rounded-lg p-2 w-9/12 city" placeholder="eg:Benue"
+                        style="font-weight: lighter; font-size: 1.5rem;" required>
+                </div>
+                <div class="result" style="color: green !important;">
+                    <p>Is Day: <span id="is_day"></span></p>
+                    <p>Temprature: <span id="temp_result"></span></p>
+                    <p>Time: <span id="time"></span></p>
+                    <p>Weather code: <span id="weathercode"></span></p>
+                    <p>Wind direction: <span id="winddirection"></span></p>
+                    <p>Wind speed: <span id="windspeed"></span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./public/js/index.js"></script>
+</body>
+
+</html>

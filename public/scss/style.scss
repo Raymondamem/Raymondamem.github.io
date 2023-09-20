@@ -1,0 +1,63 @@
+body {
+    color: white;
+
+    form {
+        * {
+            text-shadow: 2px 2px 2px hsla(0, 0%, 0%, 0.5);
+        }
+
+        input {
+            box-shadow: 2px 2px 2px hsla(0, 0%, 0%, 0.5);
+            color: black;
+        }
+    }
+
+    .pridiction {
+        display: block;
+        // justify-content: space-between;
+        // align-items: center;
+        // flex-flow: column;
+        // flex-wrap: wrap;
+        // gap: 1.5rem;
+        // overflow-y: hidden;
+
+        &>span {
+            // flex: 1 1 150px;
+            // max-width: calc(100%/3);
+            // height: 150px;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        main {
+            position: relative;
+
+            &.active {
+                &::before {
+                    content: '';
+                    display: block;
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100vw;
+                    height: 100vh;
+                    background-color: rgba(125, 211, 252, 1);
+                }
+            }
+        }
+
+        div[data-pridiction="pridiction"] {
+            width: 80%;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%) translateY(50%);
+        }
+    }
+}
